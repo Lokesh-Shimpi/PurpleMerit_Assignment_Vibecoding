@@ -1,6 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "npm --prefix frontend install && npm --prefix frontend run build"
   publish = "frontend/dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api/*"
@@ -11,9 +15,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  node_bundler = "esbuild"
 
 [dev]
   command = "npm run dev --prefix frontend"
