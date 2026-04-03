@@ -1,9 +1,10 @@
 [build]
-  command = "npm --prefix frontend install && npm --prefix frontend run build"
-  publish = "frontend/dist"
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
 
 [functions]
-  directory = "netlify/functions"
+  directory = "../netlify/functions"
   node_bundler = "esbuild"
 
 [[redirects]]
@@ -17,5 +18,5 @@
   status = 200
 
 [dev]
-  command = "npm run dev --prefix frontend"
+  command = "npm run dev"
   targetPort = 8080
