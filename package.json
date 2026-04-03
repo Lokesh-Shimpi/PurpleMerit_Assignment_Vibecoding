@@ -9,6 +9,6 @@
     "serverless-http": "^4.0.0"
   },
   "scripts": {
-    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "cd frontend && npm install && npm run build"
   }
 }
