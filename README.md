@@ -8,7 +8,7 @@ VibeKit Studio is a polished web app that allows users to generate a design them
 ## 🔐 Test User Credentials
 You can create a new account, or use this pre-configured test account:
 - **Email:** test@vibekit.com
-- **Password:** [Insert password here]
+- **Password:** 12345678
 
 ## 🛠️ Local Setup Instructions
 1. Clone the repository: `git clone [your-repo-link]`

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 265 90% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 265 90% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 265 90% 65%;
+    --radius: 0.75rem;
+
+    /* VibeKit app tokens */
+    --glow-primary: 265 90% 65%;
+    --surface-elevated: 0 0% 9%;
+    --surface-overlay: 0 0% 6%;
+    --text-tertiary: 0 0% 40%;
+    --gradient-start: 265 90% 65%;
+    --gradient-end: 330 85% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 265 90% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 265 90% 65%;
+
+    /* Mini-site default theme tokens */
+    --vibe-bg: 0 0% 100%;
+    --vibe-fg: 0 0% 8%;
+    --vibe-accent: 265 90% 55%;
+    --vibe-accent-fg: 0 0% 100%;
+    --vibe-muted: 0 0% 96%;
+    --vibe-border: 0 0% 90%;
+    --vibe-radius: 0.5rem;
+    --vibe-font-heading: 'Inter', sans-serif;
+    --vibe-font-body: 'Inter', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow effect */
+.glow-button {
+  position: relative;
+  overflow: visible;
+}
+.glow-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+  filter: blur(12px);
+}
+.glow-button:hover::before {
+  opacity: 0.7;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+/* Vibe theme classes for mini-sites */
+.vibe-site {
+  --bg: hsl(var(--vibe-bg));
+  --fg: hsl(var(--vibe-fg));
+  --accent: hsl(var(--vibe-accent));
+  --accent-fg: hsl(var(--vibe-accent-fg));
+  --muted-surface: hsl(var(--vibe-muted));
+  --border-color: hsl(var(--vibe-border));
+  --radius: var(--vibe-radius);
+  --font-heading: var(--vibe-font-heading);
+  --font-body: var(--vibe-font-body);
+  
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+.vibe-site h1, .vibe-site h2, .vibe-site h3 {
+  font-family: var(--font-heading);
+}
