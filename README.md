@@ -3,7 +3,7 @@
 VibeKit Studio is a polished web app that allows users to generate a design theme, apply it to a mini-site via a page builder, and publish it to a live, responsive URL.
 
 ## 🚀 Live Deployment
-- **Deployed URL:** [Insert your Netlify Live URL here]
+- **Deployed URL:** (https://vibekit-studios.netlify.app/)
 
 ## 🔐 Test User Credentials
 You can create a new account, or use this pre-configured test account:
