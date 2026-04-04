@@ -1,11 +1,11 @@
 const express = require('express');
 const serverless = require('serverless-http');
 const cors = require('cors');
-const connectDB = require('../../backend/config/db');
+const connectDB = require('./config/db');
 
-const authRoutes = require('../../backend/routes/auth');
-const pageRoutes = require('../../backend/routes/pages');
-const publicRoutes = require('../../backend/routes/public');
+const authRoutes = require('./routes/auth');
+const pageRoutes = require('./routes/pages');
+const publicRoutes = require('./routes/public');
 
 const app = express();
 
